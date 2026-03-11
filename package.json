@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Apple-inspired minimalist portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server",
+    "serve": "npx serve",
+    "dev": "npx live-server --port=3000"
+  },
+  "keywords": [
+    "portfolio",
+    "apple-design",
+    "minimalist",
+    "responsive",
+    "web"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
