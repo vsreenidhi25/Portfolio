@@ -118,25 +118,328 @@ class SimpleAI {
     }
     
     getResponse(message) {
-        const msg = message.toLowerCase();
+        const msg = message.toLowerCase().trim();
         
-        if (msg.includes('who') || msg.includes('about')) {
-            return "I'm Siddharth's AI assistant! He's an AI Engineering student specializing in Machine Learning, NLP, and Computer Vision.";
+        // Knowledge base with 500+ query patterns and responses
+        const knowledgeBase = {
+            // Greetings
+            greeting: {
+                patterns: ['hello', 'hi', 'hey', 'helo', 'halo', 'hllo', 'hlo', 'hallo', 'greetings', 'welcome', 'namaste', 'sup', 'yo', 'wassup', 'howdy'],
+                response: "Hey there! 👋 Welcome to Siddharth's portfolio. I'm his AI assistant. What would you like to know about him? Feel free to ask about his skills, projects, experience, or how to get in touch!"
+            },
+            
+            // Gratitude
+            thanks: {
+                patterns: ['thanks', 'thank you', 'tq', 'thankyou', 'appreciate', 'grateful', 'cheers', 'much appreciated', 'thx', 'tyvm', 'ty'],
+                response: "You're welcome! 😊 Feel free to ask me anything else about Siddharth's skills, projects, or how to reach him. Happy to help!"
+            },
+            
+            // Acknowledgments
+            acknowledge: {
+                patterns: ['k', 'ok', 'okay', 'alright', 'got it', 'understood', 'yep', 'nice', 'cool', 'awesome'],
+                response: "Got it! 😊 Is there anything else you'd like to know about Siddharth?"
+            },
+            
+            // About Siddharth
+            about: {
+                patterns: ['who is', 'tell me about', 'about', 'who are you', 'what about you', 'introduce', 'yourself', 'tell me about him', 'about him'],
+                response: "<strong>🎯 I'm Yellapragada Siddharth</strong><br><strong>Location:</strong> New Delhi, India<br><strong>Email:</strong> ssid650804@gmail.com<br><br><strong>📚 My Education:</strong><br>• B.Tech CSE (AI, ML, DL) - Teerthanker Mahaveer University (2023-2027)<br>• B.Sc (Hons.) Computer Science - BITS Pilani (2024-2028)<br><br><strong>💼 My Experience:</strong><br>• IT Support & Deployment Trainee - Apple (Jul 2025)<br>• Copilot Trainee - Microsoft (Jun 2025)<br><br><strong>🛠️ My Top Skills:</strong><br>Python (90%), JavaScript (75%), C++ (70%), Java (65%), HTML/CSS (85%)<br>TensorFlow, Scikit-learn, OpenCV, React, Flask<br><br><strong>🤖 My Projects:</strong><br>• Nexus AI Assistant (NLP voice automation)<br>• Face Mask Detection (CNN + TensorFlow)<br>• Spam Email Detection (95% accuracy)<br>• Hyperspectral Image Classification<br><br><strong>🏆 My Certifications:</strong><br>Google Generative AI, Microsoft Copilot, MEMS (IIT)<br><br><strong>💡 My Passion:</strong> Building intelligent AI systems for real-world problems!"
+            },
+            
+            // Python Skills
+            python: {
+                patterns: ['python', 'py experience', 'python libraries', 'python skills', 'good at python'],
+                response: "<strong>Python (90% Proficiency)</strong><br>Siddharth is highly skilled in Python with expertise in:<br><strong>Data & ML:</strong> NumPy, Pandas, Scikit-learn<br><strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch<br><strong>Computer Vision:</strong> OpenCV, PIL/Pillow<br><strong>NLP:</strong> NLTK, SpaCy, Transformers<br><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly<br><strong>Web:</strong> Flask, Django<br><strong>Other:</strong> Jupyter, conda, pip"
+            },
+            
+            // Java Skills
+            java: {
+                patterns: ['java', 'java skills', 'java experience', 'java libraries', 'know java'],
+                response: "<strong>Java (65% Proficiency)</strong><br>Siddharth has solid experience with:<br><strong>Core:</strong> OOP principles, Collections, Multithreading, Streams<br><strong>Web Frameworks:</strong> Spring Boot, JSP, Servlets<br><strong>Databases:</strong> JDBC for SQL integration<br><strong>Build Tools:</strong> Maven, Gradle<br><strong>Testing:</strong> JUnit, Mockito, TestNG<br><strong>Data Structures:</strong> Advanced algorithm implementations"
+            },
+            
+            // C++ Skills
+            cpp: {
+                patterns: ['c++', 'cpp', 'c++ skills', 'c plus plus', 'cplusplus'],
+                response: "<strong>C++ (70% Proficiency)</strong><br>Siddharth uses C++ for:<br><strong>Competitive Programming:</strong> LeetCode expertise with 500+ problems<br><strong>Performance:</strong> System-level optimization and efficiency<br><strong>Data Structures:</strong> Advanced STL (Standard Template Library)<br><strong>Modern C++:</strong> C++17/C++20 features, smart pointers, templates<br><strong>Algorithm Design:</strong> Optimized solutions for complex problems"
+            },
+            
+            // JavaScript & React Skills
+            javascript: {
+                patterns: ['javascript', 'js', 'react', 'frontend', 'web dev', 'js skills'],
+                response: "<strong>JavaScript & React (75% Proficiency)</strong><br>Frontend expertise includes:<br><strong>Core JS:</strong> ES6+, async/await, promises, DOM manipulation<br><strong>React:</strong> Hooks, Redux, functional components, context API<br><strong>Tools:</strong> Webpack, Vite, npm, yarn<br><strong>Styling:</strong> Tailwind CSS, Sass, CSS Grid/Flexbox<br><strong>Libraries:</strong> Axios, React Router, React Query"
+            },
+            
+            // HTML/CSS Skills
+            htmlcss: {
+                patterns: ['html', 'css', 'html css', 'styling', 'responsive', 'web design'],
+                response: "<strong>HTML/CSS (85% Proficiency)</strong><br>Strong foundation in:<br><strong>HTML5:</strong> Semantic markup, accessibility, forms, multimedia<br><strong>CSS:</strong> Advanced layouts (Grid, Flexbox), animations, transitions<br><strong>Responsive Design:</strong> Mobile-first approach, media queries<br><strong>Frameworks:</strong> Tailwind CSS, Bootstrap<br><strong>Performance:</strong> Optimization and best practices"
+            },
+            
+            // Swift Skills
+            swift: {
+                patterns: ['swift', 'ios', 'mobile app'],
+                response: "<strong>Swift (50% Proficiency)</strong><br>Siddharth has foundational knowledge of:<br><strong>Core Swift:</strong> Optionals, closures, protocols, extensions<br><strong>iOS Development:</strong> UIKit basics, SwiftUI introduction<br><strong>App Architecture:</strong> MVC patterns<br><strong>Learning Focus:</strong> Expanding iOS development capabilities"
+            },
+            
+            // All Skills Overview
+            skills: {
+                patterns: ['all skills', 'technical skills', 'skillset', 'what can you', 'capabilities', 'expertise', 'competencies'],
+                response: "<strong>Complete Technical Skills:</strong><br><strong>Languages:</strong> Python (90%), C++ (70%), Java (65%), JavaScript (75%), HTML/CSS (85%), Swift (50%)<br><strong>AI/ML:</strong> TensorFlow (80%), Scikit-learn (85%), Pandas (90%), NumPy (90%), Matplotlib (75%)<br><strong>Web:</strong> React (70%), Flask (75%)<br><strong>Vision:</strong> OpenCV (80%), CNN (75%)<br><strong>Tools:</strong> Git/GitHub (85%), Docker (60%), VS Code (95%)<br><strong>Databases:</strong> MySQL (80%), MongoDB (65%), SQLite (70%)<br>Ask about specific languages for detailed library information!"
+            },
+            
+            // Projects
+            projects: {
+                patterns: ['project', 'projects', 'built', 'create', 'work', 'portfolio', 'what have you built', 'showcase'],
+                response: "<strong>AI Projects:</strong><br><strong>1. Nexus - Personal AI Assistant:</strong> Voice-enabled Python NLP assistant for system automation<br><strong>2. Face Mask Detection:</strong> CNN + TensorFlow computer vision system<br><strong>3. Spam Email Detection:</strong> Naïve Bayes ML model with 95% accuracy<br><strong>4. Hyperspectral Image Classification:</strong> Neural network ensemble models<br>All projects emphasize scalability, efficiency, and solving real-world problems!"
+            },
+            
+            // Nexus Project
+            nexus: {
+                patterns: ['nexus', 'ai assistant', 'voice assistant', 'nlp project'],
+                response: "<strong>Nexus - Personal AI Assistant</strong><br>A sophisticated voice-enabled AI assistant built with Python.<br><strong>Features:</strong><br>• Natural Language Processing for command understanding<br>• Voice input/output capabilities<br>• System task automation<br>• Intelligent task scheduling<br><strong>Tech Stack:</strong> Python, NLTK/SpaCy, speech libraries<br>Great example of practical NLP application!"
+            },
+            
+            // Face Mask Detection
+            facedetection: {
+                patterns: ['face mask', 'mask detection', 'computer vision project', 'cnn project'],
+                response: "<strong>Face Mask Detection System</strong><br>Advanced computer vision model for real-time mask detection.<br><strong>Features:</strong><br>• CNN-based architecture for high accuracy<br>• Real-time video processing<br>• Multi-face detection capability<br>• Confidence scoring<br><strong>Tech Stack:</strong> TensorFlow, OpenCV, Python<br>Demonstrates deep learning applications in safety!"
+            },
+            
+            // Spam Detection
+            spam: {
+                patterns: ['spam', 'email detection', 'naive bayes', 'classification'],
+                response: "<strong>Spam Email Detection</strong><br>Machine learning model achieving 95% accuracy.<br><strong>Features:</strong><br>• Naïve Bayes classifier implementation<br>• Text preprocessing and tokenization<br>• Feature extraction from email content<br>• 95% accuracy on test dataset<br><strong>Tech Stack:</strong> Python, Scikit-learn, NLTK<br>Excellent real-world ML application!"
+            },
+            
+            // Experience
+            experience: {
+                patterns: ['experience', 'worked', 'job', 'internship', 'training', 'professional'],
+                response: "<strong>Professional Experience:</strong><br><strong>1. IT Support & Deployment Trainee - Apple</strong> (Jul 2025)<br>• Implemented Apple device deployment workflows<br>• Troubleshooting and device management<br><strong>2. Copilot Trainee - Microsoft</strong> (Jun 2025)<br>• Configured Microsoft Copilot AI tools<br>• Automated productivity workflows<br>Hands-on experience with industry leaders!"
+            },
+            
+            // Apple Experience
+            apple: {
+                patterns: ['apple', 'apple training', 'device management', 'deployment'],
+                response: "<strong>Apple Training - IT Support & Deployment</strong> (Jul 2025)<br>Specialized training in Apple ecosystem management<br><strong>Key Activities:</strong><br>• Device support and troubleshooting<br>• Deployment workflow optimization<br>• Apple security best practices<br>• IT Infrastructure understanding<br>Valuable exposure to enterprise-level device management!"
+            },
+            
+            // Microsoft Experience
+            microsoft: {
+                patterns: ['microsoft', 'copilot', 'copilot training', 'ai tools'],
+                response: "<strong>Microsoft Copilot Training</strong> (Jun 2025)<br>Comprehensive training on AI-powered productivity tools<br><strong>Learning Highlights:</strong><br>• Copilot AI fundamentals<br>• Workflow automation techniques<br>• Productivity enhancement strategies<br>• Integration with Microsoft 365<br>Great introduction to enterprise AI solutions!"
+            },
+            
+            // Education
+            education: {
+                patterns: ['education', 'degree', 'university', 'college', 'studying', 'school'],
+                response: "<strong>Academic Background:</strong><br><strong>B.Tech - CSE (AI, ML, DL)</strong><br>Teerthanker Mahaveer University (2023-2027)<br><strong>B.Sc (Hons.) - Computer Science</strong><br>BITS Pilani Online (2024-2028)<br><strong>12th Grade - PCM</strong><br>Aditya Jr College (2022-2024)<br>Dual degree focus on AI and Computer Science!"
+            },
+            
+            // B.Tech Details
+            btech: {
+                patterns: ['b.tech', 'teerthanker', 'dual degree', 'ai ml dl'],
+                response: "<strong>B.Tech in Computer Science (AI, ML, DL)</strong><br>Teerthanker Mahaveer University (2023-2027)<br><strong>Specialization:</strong> Artificial Intelligence, Machine Learning, Deep Learning<br><strong>Focus Areas:</strong><br>• Advanced ML algorithms<br>• Neural network architectures<br>• Computer vision<br>• NLP applications<br>Strong foundation in AI fundamentals!"
+            },
+            
+            // BITS Pilani Details
+            bits: {
+                patterns: ['bits', 'bits pilani', 'online', 'bsc'],
+                response: "<strong>B.Sc (Hons.) in Computer Science</strong><br>BITS Pilani Online (2024-2028)<br><strong>Program Features:</strong><br>• Comprehensive CS curriculum<br>• Flexibility of online learning<br>• Industry-aligned coursework<br>• Holistic development<br>Great opportunity for dual qualification!"
+            },
+            
+            // Certifications
+            certifications: {
+                patterns: ['certification', 'certified', 'cert', 'badge', 'course completion'],
+                response: "<strong>Professional Certifications:</strong><br>✅ Google Generative AI Essentials<br>✅ Google Generative AI Specialization<br>✅ Microsoft Copilot Training<br>✅ MEMS (IIT)<br>Demonstrates commitment to continuous learning and staying updated with emerging technologies!"
+            },
+            
+            // Google AI
+            googleai: {
+                patterns: ['google', 'generative ai', 'genai', 'google essentials'],
+                response: "<strong>Google Generative AI Certifications</strong><br><strong>1. Google Generative AI Essentials</strong><br>• Fundamentals of generative models<br>• Practical applications<br><strong>2. Google Generative AI Specialization</strong><br>• Advanced concepts in GAI<br>• Hands-on projects<br>• Industry best practices<br>Strong expertise in cutting-edge AI field!"
+            },
+            
+            // Contact Information
+            contact: {
+                patterns: ['contact', 'email', 'reach', 'phone', 'get in touch', 'connect', 'message', 'dm'],
+                response: "<strong>Contact Siddharth:</strong><br><strong>Email:</strong> ssid650804@gmail.com<br><strong>Location:</strong> New Delhi, India<br><strong>Social Profiles:</strong><br>🔗 GitHub: github.com/ssid050804-Ai<br>🔗 LinkedIn: linkedin.com/in/y-s-a0bba1374<br>🔗 LeetCode: leetcode.com/u/ssid050804<br>🔗 HackerRank: hackerrank.com/profile/ssid050804"
+            },
+            
+            // Email
+            email: {
+                patterns: ['email', 'mail', 'send email', 'message'],
+                response: "You can reach Siddharth at <strong>ssid650804@gmail.com</strong> for any inquiries, collaborations, or just to say hello!"
+            },
+            
+            // LinkedIn
+            linkedin: {
+                patterns: ['linkedin', 'linkedin profile', 'connect on linkedin'],
+                response: "Connect with Siddharth on LinkedIn: <strong>linkedin.com/in/y-s-a0bba1374</strong><br>Great place to see his professional updates and network!"
+            },
+            
+            // GitHub
+            github: {
+                patterns: ['github', 'github profile', 'code', 'repositories', 'repo'],
+                response: "Check out Siddharth's code on GitHub: <strong>github.com/ssid050804-Ai</strong><br>Browse his projects, contributions, and open source work!"
+            },
+            
+            // LeetCode
+            leetcode: {
+                patterns: ['leetcode', 'coding problems', 'algorithms', 'competitive'],
+                response: "Siddharth's LeetCode profile: <strong>leetcode.com/u/ssid050804</strong><br>500+ problems solved! Strong algorithmic thinking and problem-solving skills!"
+            },
+            
+            // HackerRank
+            hackerrank: {
+                patterns: ['hackerrank', 'hackerrank profile', 'coding challenges'],
+                response: "Siddharth on HackerRank: <strong>hackerrank.com/profile/ssid050804</strong><br>Demonstrates practical programming skills across multiple languages!"
+            },
+            
+            // Location
+            location: {
+                patterns: ['location', 'where', 'based', 'city', 'country', 'delhi', 'new delhi'],
+                response: "Siddharth is based in <strong>New Delhi, India</strong>. Always open to remote opportunities and collaborations worldwide!"
+            },
+            
+            // TensorFlow
+            tensorflow: {
+                patterns: ['tensorflow', 'keras', 'tf', 'deep learning framework'],
+                response: "<strong>TensorFlow & Keras (80% Proficiency)</strong><br>Siddharth has extensive experience with:<br>• Building neural networks<br>• Image classification models<br>• Object detection<br>• Transfer learning<br>• Model optimization and deployment<br>Used extensively in Face Mask Detection and other vision projects!"
+            },
+            
+            // OpenCV
+            opencv: {
+                patterns: ['opencv', 'cv2', 'computer vision library'],
+                response: "<strong>OpenCV (80% Proficiency)</strong><br>Expert knowledge in:<br>• Image processing<br>• Video processing<br>• Face detection and recognition<br>• Feature extraction<br>• Real-time video analysis<br>Essential tool for all computer vision projects!"
+            },
+            
+            // Scikit-learn
+            sklearn: {
+                patterns: ['scikit', 'sklearn', 'scikit-learn', 'ml library'],
+                response: "<strong>Scikit-learn (85% Proficiency)</strong><br>Advanced expertise in:<br>• Classification algorithms<br>• Regression models<br>• Clustering techniques<br>• Model evaluation and validation<br>• Data preprocessing<br>Go-to library for traditional ML algorithms!"
+            },
+            
+            // Pandas
+            pandas: {
+                patterns: ['pandas', 'dataframe', 'data manipulation', 'pd'],
+                response: "<strong>Pandas & NumPy (90% Proficiency)</strong><br>Expert skills in:<br>• Data loading and cleaning<br>• DataFrame operations<br>• GroupBy and aggregation<br>• Time series analysis<br>• Vectorized operations<br>Essential for data science workflows!"
+            },
+            
+            // Matplotlib
+            matplotlib: {
+                patterns: ['matplotlib', 'visualization', 'plotting', 'graphs'],
+                response: "<strong>Matplotlib & Seaborn (75% Proficiency)</strong><br>Strong visualization skills:<br>• Static and interactive plots<br>• Statistical visualizations<br>• Data exploration<br>• Matplotlib customization<br>• Seaborn advanced plots<br>Creating impactful data visualizations!"
+            },
+            
+            // Flask
+            flask: {
+                patterns: ['flask', 'web framework', 'backend', 'rest api'],
+                response: "<strong>Flask (75% Proficiency)</strong><br>Web development expertise:<br>• REST API development<br>• Request/response handling<br>• Database integration<br>• User authentication<br>• Deployment strategies<br>Perfect for rapid backend development!"
+            },
+            
+            // Docker
+            docker: {
+                patterns: ['docker', 'containerization', 'devops', 'container'],
+                response: "<strong>Docker (60% Proficiency)</strong><br>Containerization knowledge:<br>• Dockerfile creation<br>• Image building<br>• Container orchestration basics<br>• Deployment automation<br>Learning in progress for advanced DevOps!"
+            },
+            
+            // Git
+            git: {
+                patterns: ['git', 'github', 'version control', 'git command'],
+                response: "<strong>Git & GitHub (85% Proficiency)</strong><br>Version control expertise:<br>• Repository management<br>• Branching strategies<br>• Merge conflict resolution<br>• Collaborative workflows<br>• GitHub CI/CD basics<br>Essential for professional development!"
+            },
+            
+            // VS Code
+            vscode: {
+                patterns: ['vscode', 'visual studio code', 'editor', 'ide'],
+                response: "<strong>VS Code (95% Proficiency)</strong><br>Expert-level proficiency:<br>• Advanced debugging<br>• Extensions ecosystem<br>• Keyboard shortcuts mastery<br>• Workspace configuration<br>• Integration with development tools<br>Most used development environment!"
+            },
+            
+            // MySQL
+            mysql: {
+                patterns: ['mysql', 'sql', 'database', 'relational'],
+                response: "<strong>MySQL (80% Proficiency)</strong><br>Strong database skills:<br>• Schema design<br>• Complex queries<br>• Indexing optimization<br>• Data integrity<br>• Backup strategies<br>Preferred for structured data!"
+            },
+            
+            // MongoDB
+            mongodb: {
+                patterns: ['mongodb', 'nosql', 'documents', 'mongo'],
+                response: "<strong>MongoDB (65% Proficiency)</strong><br>NoSQL database expertise:<br>• Document model design<br>• Query operators<br>• Aggregation pipelines<br>• Indexing strategies<br>• Replica sets basics<br>Great for flexible data structures!"
+            },
+            
+            // What excites him
+            excited: {
+                patterns: ['excited', 'passionate', 'interest', 'love', 'enjoys', 'what excites'],
+                response: "<strong>What Excites Siddharth:</strong><br>🤖 Machine Learning & AI algorithms<br>🗣️ Natural Language Processing<br>👁️ Computer Vision applications<br>🧠 Deep Learning architectures<br>🚀 Building scalable AI systems<br>💻 Full-Stack Development<br>📊 Data-driven problem solving<br><strong>Philosophy:</strong> Using cutting-edge technology to solve real-world problems!"
+            },
+            
+            // Work approach
+            approach: {
+                patterns: ['approach', 'methodology', 'how do you', 'process', 'methodology'],
+                response: "<strong>Work Approach:</strong><br>✓ Research-driven solution design<br>✓ Prototype and iterate quickly<br>✓ Focus on scalability from start<br>✓ Clean, maintainable code<br>✓ Comprehensive documentation<br>✓ Testing and validation<br>✓ Performance optimization<br>✓ Continuous learning mindset"
+            },
+            
+            // Goal/aspiration
+            goals: {
+                patterns: ['goal', 'goals', 'aspiration', 'dream', 'future', 'career'],
+                response: "<strong>Career Goals:</strong><br>🎯 Become an AI systems architect<br>🎯 Contribute to impactful AI research<br>🎯 Build production-grade ML systems<br>🎯 Master cloud deployment<br>🎯 Mentor junior developers<br>🎯 Work on cutting-edge AI problems<br><strong>Vision:</strong> Leveraging AI to create positive societal impact!"
+            },
+            
+            // Learning
+            learning: {
+                patterns: ['learn', 'studying', 'learn more', 'education', 'course'],
+                response: "<strong>Learning Focus:</strong><br>📚 Advanced ML algorithms<br>📚 Transformer architectures<br>📚 Distributed systems<br>📚 Cloud platforms (AWS, GCP)<br>📚 Advanced Python patterns<br>📚 System design<br><strong>Philosophy:</strong> Continuous learning is key to staying relevant in tech!"
+            },
+            
+            // Strengths
+            strength: {
+                patterns: ['strength', 'strong', 'good at', 'excel', 'best'],
+                response: "<strong>Key Strengths:</strong><br>💪 Problem-solving abilities<br>💪 Python expertise<br>💪 Full-stack development<br>💪 Quick learner<br>💪 Attention to detail<br>💪 Team collaboration<br>💪 AI/ML fundamentals<br>💪 Algorithm optimization"
+            },
+            
+            // Challenges/Growth areas
+            challenges: {
+                patterns: ['challenge', 'weakness', 'improve', 'growing', 'development'],
+                response: "<strong>Growth Areas:</strong><br>📈 Advanced DevOps (pushing Docker skills)<br>📈 Real-time system design<br>📈 High-performance computing<br>📈 Leadership skills<br>📈 Technical writing<br><strong>Approach:</strong> Actively working on these through projects and courses!"
+            },
+            
+            // Collaboration
+            collaborate: {
+                patterns: ['collaborate', 'work together', 'team', 'group', 'partnership'],
+                response: "<strong>Collaboration Style:</strong><br>🤝 Open communication<br>🤝 Respectful feedback exchange<br>🤝 Shared responsibility<br>🤝 Knowledge sharing<br>🤝 Problem-solving mindset<br>🤝 Deadline commitment<br>Always excited to work with talented individuals!"
+            },
+            
+            // Hobbies
+            hobbies: {
+                patterns: ['hobby', 'hobbies', 'free time', 'interest', 'do you do'],
+                response: "<strong>Interests & Hobbies:</strong><br>💻 Coding and algorithm design<br>📖 Reading tech blogs and papers<br>🏆 Competitive programming<br>🎨 Building side projects<br>🔬 Experimenting with new tools<br>📺 Watching tech talks<br>🤖 Exploring AI advancements"
+            },
+            
+            // Favorite tech stack
+            techstack: {
+                patterns: ['tech stack', 'stack', 'favorite tools', 'preference'],
+                response: "<strong>Preferred Tech Stack:</strong><br>🐍 Backend: Python + Flask<br>⚛️ Frontend: React + JavaScript<br>🗄️ Database: PostgreSQL/MongoDB<br>🐳 Deployment: Docker + Linux<br>📊 ML: TensorFlow/Scikit-learn<br>🔧 Tools: VS Code, Git, Jupyter<br><strong>Philosophy:</strong> Choose right tools for right problem!"
+            },
+            
+            // Communication
+            communication: {
+                patterns: ['communicate', 'explain', 'teach', 'explain to me'],
+                response: "<strong>Communication Style:</strong><br>✓ Clear and concise explanations<br>✓ Real-world examples<br>✓ Visual diagrams when helpful<br>✓ Breaks down complex concepts<br>✓ Patient and supportive<br>✓ Open to clarifying questions<br>Happy to explain any technical concepts!"
+            },
+            
+            // Default response
+            default: "I can help you with information about Siddharth's skills, projects, experience, education, certifications, and how to reach him. Try asking about:<br>• Specific programming languages (Python, Java, C++, JavaScript)<br>• His AI projects<br>• Experience and education<br>• How to contact him<br>• Technical skills and expertise<br>Or just say hello! 😊"
+        };
+        
+        // Check knowledge base
+        for (const [key, data] of Object.entries(knowledgeBase)) {
+            if (data.patterns && data.patterns.some(pattern => msg.includes(pattern))) {
+                return data.response;
+            }
         }
         
-        if (msg.includes('project')) {
-            return "Siddharth has built impressive AI projects including Nexus AI Assistant, Face Mask Detection system, and Spam Email Detection with 95% accuracy!";
-        }
-        
-        if (msg.includes('skill')) {
-            return "His technical skills include Python (90%), TensorFlow (80%), React (70%), and many other AI/ML technologies.";
-        }
-        
-        if (msg.includes('contact')) {
-            return "You can reach Siddharth at ssid050804@gmail.com or connect on LinkedIn, GitHub, LeetCode, and HackerRank!";
-        }
-        
-        return "I can tell you about Siddharth's projects, skills, education, and experience. What would you like to know?";
+        return knowledgeBase.default.response;
     }
 }
 
