@@ -3884,6 +3884,7 @@ section[id] {
     .ai-assistant {
         bottom: 1rem;
         right: 1rem;
+        z-index: 1001;
     }
     
     .ai-chat-toggle {
@@ -3893,10 +3894,12 @@ section[id] {
     
     .ai-chat-window {
         width: calc(100vw - 2rem);
+        max-width: calc(100vw - 2rem);
         height: 70vh;
         bottom: 70px;
-        right: -1rem;
-        left: 1rem;
+        right: 0;
+        left: auto;
+        transform-origin: bottom right;
     }
     
     .ai-chat-header {
@@ -3913,8 +3916,22 @@ section[id] {
 }
 
 @media (max-width: 480px) {
+    .ai-assistant {
+        bottom: 0.75rem;
+        right: 0.75rem;
+    }
+    
+    .ai-chat-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    
     .ai-chat-window {
+        width: calc(100vw - 1.5rem);
+        max-width: calc(100vw - 1.5rem);
         height: 60vh;
+        bottom: 65px;
+        right: 0;
     }
 }
 
