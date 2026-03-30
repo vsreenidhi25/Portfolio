@@ -148,14 +148,14 @@ class SimpleAI {
             
             // About Sreenidhi
             about: {
-                patterns: ['who is', 'tell me about', 'about', 'who are you', 'what about you', 'introduce', 'yourself', 'tell me about him', 'about him'],
-                response: "<strong>🎯 I'm Vajjaha Sreenidhi</strong><br><strong>Location:</strong> Hyderabad, India<br><strong>Email:</strong> ssid650804@gmail.com<br><br><strong>📚 My Education:</strong><br>• B.Tech CSE (AI, ML, DL) - Teerthanker Mahaveer University (2023-2027)<br>• B.Sc (Hons.) Computer Science - BITS Pilani (2024-2028)<br><br><strong>💼 My Experience:</strong><br>• IT Support & Deployment Trainee - Apple (Jul 2025)<br>• Copilot Trainee - Microsoft (Jun 2025)<br><br><strong>🛠️ My Top Skills:</strong><br>Python (90%), JavaScript (75%), C++ (70%), Java (65%), HTML/CSS (85%)<br>TensorFlow, Scikit-learn, OpenCV, React, Flask<br><br><strong>🤖 My Projects:</strong><br>• Nexus AI Assistant (NLP voice automation)<br>• Face Mask Detection (CNN + TensorFlow)<br>• Spam Email Detection (95% accuracy)<br>• Hyperspectral Image Classification<br><br><strong>🏆 My Certifications:</strong><br>Google Generative AI, Microsoft Copilot, MEMS (IIT)<br><br><strong>💡 My Passion:</strong> Building intelligent AI systems for real-world problems!"
+                patterns: ['who is', 'tell me about', 'about', 'who are you', 'what about you', 'introduce', 'yourself', 'tell me about her', 'about her'],
+                response: "<strong>🎯 I'm Vajjaha Sreenidhi</strong><br><strong>Location:</strong> R.T.C colony, Kammaguda, Turkayamjal, Hyderabad<br><strong>Email:</strong> vajjahas@gmail.com<br><strong>Phone:</strong> 9652254819<br><br><strong>📚 My Education:</strong><br>• Bachelor of Engineering in IT - MVSR Engineering College (2022-2025) - GPA: 7.13<br>• Diploma in CSE - Sri Indu Institute of Engineering & Technology (2019-2022)<br><br><strong>🛠️ My Skills:</strong><br>HTML, CSS, JavaScript, Python, GitHub, MySQL, Visual Studio<br><br><strong>🤖 My Projects:</strong><br>• Sanskrit Learning Web Application (Next.js + Neon database)<br>• Invisible Man (Mask R-CNN + COCO dataset)<br>• Eye Link (Eye tracking for accessibility)<br>• Chess with Computer (HTML, CSS, JavaScript)<br><br><strong>💡 About Me:</strong> IT Engineering graduate with strong analytical skills and technical proficiency. I develop innovative solutions and thrive in collaborative environments where attention to detail and problem-solving abilities are highly valued!"
             },
             
             // Python Skills
             python: {
                 patterns: ['python', 'py experience', 'python libraries', 'python skills', 'good at python'],
-                response: "<strong>Python (90% Proficiency)</strong><br>Sreenidhi is highly skilled in Python with expertise in:<br><strong>Data & ML:</strong> NumPy, Pandas, Scikit-learn<br><strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch<br><strong>Computer Vision:</strong> OpenCV, PIL/Pillow<br><strong>NLP:</strong> NLTK, SpaCy, Transformers<br><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly<br><strong>Web:</strong> Flask, Django<br><strong>Other:</strong> Jupyter, conda, pip"
+                response: "<strong>Python (90% Proficiency)</strong><br>I'm highly skilled in Python! I use it for:<br><strong>Projects:</strong> Invisible Man (Mask R-CNN), Eye Link (eye tracking)<br><strong>Applications:</strong> Computer vision, accessibility tools, web development<br><strong>Libraries:</strong> Mask R-CNN, OpenCV, and more<br>Python is my go-to language for building innovative solutions!"
             },
             
             // Java Skills
@@ -172,14 +172,14 @@ class SimpleAI {
             
             // JavaScript & React Skills
             javascript: {
-                patterns: ['javascript', 'js', 'react', 'frontend', 'web dev', 'js skills'],
-                response: "<strong>JavaScript & React (75% Proficiency)</strong><br>Frontend expertise includes:<br><strong>Core JS:</strong> ES6+, async/await, promises, DOM manipulation<br><strong>React:</strong> Hooks, Redux, functional components, context API<br><strong>Tools:</strong> Webpack, Vite, npm, yarn<br><strong>Styling:</strong> Tailwind CSS, Sass, CSS Grid/Flexbox<br><strong>Libraries:</strong> Axios, React Router, React Query"
+                patterns: ['javascript', 'js', 'react', 'frontend', 'web dev', 'js skills', 'nextjs', 'next.js'],
+                response: "<strong>JavaScript (80% Proficiency)</strong><br>I use JavaScript for web development:<br><strong>Projects:</strong> Sanskrit Learning App (Next.js), Chess with Computer<br><strong>Skills:</strong> Next.js, HTML, CSS, interactive UIs<br><strong>Applications:</strong> Full-stack web apps, browser games, interactive platforms<br>I love building engaging web experiences!"
             },
             
             // HTML/CSS Skills
             htmlcss: {
                 patterns: ['html', 'css', 'html css', 'styling', 'responsive', 'web design'],
-                response: "<strong>HTML/CSS (85% Proficiency)</strong><br>Strong foundation in:<br><strong>HTML5:</strong> Semantic markup, accessibility, forms, multimedia<br><strong>CSS:</strong> Advanced layouts (Grid, Flexbox), animations, transitions<br><strong>Responsive Design:</strong> Mobile-first approach, media queries<br><strong>Frameworks:</strong> Tailwind CSS, Bootstrap<br><strong>Performance:</strong> Optimization and best practices"
+                response: "<strong>HTML & CSS (90% Proficiency)</strong><br>Strong foundation in web design:<br><strong>Skills:</strong> Responsive design, modern layouts, animations<br><strong>Projects:</strong> Portfolio website, Chess game, Sanskrit Learning App<br><strong>Approach:</strong> Clean, accessible, mobile-friendly designs<br>I create beautiful and functional web interfaces!"
             },
             
             // Swift Skills
@@ -190,14 +190,14 @@ class SimpleAI {
             
             // All Skills Overview
             skills: {
-                patterns: ['all skills', 'technical skills', 'skillset', 'what can you', 'capabilities', 'expertise', 'competencies'],
-                response: "<strong>Complete Technical Skills:</strong><br><strong>Languages:</strong> Python (90%), C++ (70%), Java (65%), JavaScript (75%), HTML/CSS (85%), Swift (50%)<br><strong>AI/ML:</strong> TensorFlow (80%), Scikit-learn (85%), Pandas (90%), NumPy (90%), Matplotlib (75%)<br><strong>Web:</strong> React (70%), Flask (75%)<br><strong>Vision:</strong> OpenCV (80%), CNN (75%)<br><strong>Tools:</strong> Git/GitHub (85%), Docker (60%), VS Code (95%)<br><strong>Databases:</strong> MySQL (80%), MongoDB (65%), SQLite (70%)<br>Ask about specific languages for detailed library information!"
+                patterns: ['all skills', 'technical skills', 'skillset', 'what can you', 'capabilities', 'expertise', 'competencies', 'what do you know'],
+                response: "<strong>Complete Technical Skills:</strong><br><strong>Languages:</strong> HTML, CSS, JavaScript, Python<br><strong>Tools:</strong> GitHub, MySQL, Visual Studio<br><br>I'm proficient in web development, Python programming, and database management. I use these skills to create innovative solutions that solve real-world problems!"
             },
             
             // Projects
             projects: {
                 patterns: ['project', 'projects', 'built', 'create', 'work', 'portfolio', 'what have you built', 'showcase'],
-                response: "<strong>AI Projects:</strong><br><strong>1. Nexus - Personal AI Assistant:</strong> Voice-enabled Python NLP assistant for system automation<br><strong>2. Face Mask Detection:</strong> CNN + TensorFlow computer vision system<br><strong>3. Spam Email Detection:</strong> Naïve Bayes ML model with 95% accuracy<br><strong>4. Hyperspectral Image Classification:</strong> Neural network ensemble models<br>All projects emphasize scalability, efficiency, and solving real-world problems!"
+                response: "<strong>My Projects:</strong><br><strong>1. Sanskrit Learning Web Application:</strong> Built with Next.js and Neon database - an interactive platform with gamified lessons, quizzes, and chatroom for learners<br><strong>2. Invisible Man:</strong> Python project using Mask R-CNN trained on COCO dataset to detect and mask people, creating a visual invisibility effect<br><strong>3. Eye Link:</strong> Python eye tracking system to control computer screens, helping individuals with physical disabilities through eye-based navigation<br><strong>4. Chess with Computer:</strong> Browser-based chess game with HTML, CSS, JavaScript featuring move validation, basic AI, and interactive UI<br><br>Check out my GitHub: https://github.com/vsreenidhi25"
             },
             
             // Nexus Project
@@ -238,8 +238,8 @@ class SimpleAI {
             
             // Education
             education: {
-                patterns: ['education', 'degree', 'university', 'college', 'studying', 'school'],
-                response: "<strong>Academic Background:</strong><br><strong>B.Tech - CSE (AI, ML, DL)</strong><br>Teerthanker Mahaveer University (2023-2027)<br><strong>B.Sc (Hons.) - Computer Science</strong><br>BITS Pilani Online (2024-2028)<br><strong>12th Grade - PCM</strong><br>Aditya Jr College (2022-2024)<br>Dual degree focus on AI and Computer Science!"
+                patterns: ['education', 'degree', 'university', 'college', 'studying', 'school', 'qualification'],
+                response: "<strong>Academic Background:</strong><br><strong>Bachelor of Engineering - IT</strong><br>MVSR Engineering College (2022-2025)<br>GPA: 7.13<br><br><strong>Diploma in CSE</strong><br>Sri Indu Institute of Engineering & Technology (2019-2022)<br><br>Completed my degree with a strong foundation in IT and software development!"
             },
             
             // B.Tech Details
