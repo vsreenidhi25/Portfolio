@@ -190,13 +190,13 @@ class SimpleAI {
             
             // All Skills Overview
             skills: {
-                patterns: ['all skills', 'technical skills', 'skillset', 'what can you', 'capabilities', 'expertise', 'competencies', 'what do you know'],
+                patterns: ['skill', 'skills', 'all skills', 'technical skills', 'skillset', 'what can you', 'capabilities', 'expertise', 'competencies', 'what do you know'],
                 response: "<strong>Complete Technical Skills:</strong><br><strong>Languages:</strong> HTML, CSS, JavaScript, Python<br><strong>Tools:</strong> GitHub, MySQL, Visual Studio<br><br>I'm proficient in web development, Python programming, and database management. I use these skills to create innovative solutions that solve real-world problems!"
             },
             
             // Projects
             projects: {
-                patterns: ['project', 'projects', 'built', 'create', 'work', 'portfolio', 'what have you built', 'showcase'],
+                patterns: ['project', 'projects', 'your project', 'your projects', 'built', 'create', 'work', 'portfolio', 'what have you built', 'showcase'],
                 response: "<strong>My Projects:</strong><br><strong>1. Sanskrit Learning Web Application:</strong> Built with Next.js and Neon database - an interactive platform with gamified lessons, quizzes, and chatroom for learners<br><strong>2. Invisible Man:</strong> Python project using Mask R-CNN trained on COCO dataset to detect and mask people, creating a visual invisibility effect<br><strong>3. Eye Link:</strong> Python eye tracking system to control computer screens, helping individuals with physical disabilities through eye-based navigation<br><strong>4. Chess with Computer:</strong> Browser-based chess game with HTML, CSS, JavaScript featuring move validation, basic AI, and interactive UI<br><br>Check out my GitHub: https://github.com/vsreenidhi25"
             },
             
