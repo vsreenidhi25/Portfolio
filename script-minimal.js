@@ -438,9 +438,13 @@ class SimpleAI {
             default: "I can help you with information about Sreenidhi's skills, projects, experience, education, and how to reach her. Try asking about:<br>• Programming languages (Python, HTML, CSS, JavaScript)<br>• Her web development and computer vision projects<br>• Experience and education<br>• How to contact her<br>• Technical skills and expertise<br>Or just say hello! 😊"
         };
         
-        // Check knowledge base
+        // Check knowledge base with word boundary matching
         for (const [key, data] of Object.entries(knowledgeBase)) {
-            if (data.patterns && data.patterns.some(pattern => msg.includes(pattern))) {
+            if (data.patterns && data.patterns.some(pattern => {
+                // Use word boundaries for better matching
+                const regex = new RegExp('\\b' + pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+                return regex.test(msg);
+            })) {
                 return data.response;
             }
         }
