@@ -124,44 +124,50 @@ class SimpleAI {
         const knowledgeBase = {
             // Greetings
             greeting: {
-                patterns: ['hello', 'hi', 'hey', 'helo', 'halo', 'hllo', 'hlo', 'hallo', 'greetings', 'welcome', 'namaste', 'sup', 'yo', 'wassup', 'howdy'],
-                response: "Hey there! 👋 Welcome to Siddharth's portfolio. I'm his AI assistant. What would you like to know about him? Feel free to ask about his skills, projects, experience, or how to get in touch!"
+                patterns: ['hello', 'hi', 'hey', 'helo', 'halo', 'hllo', 'hlo', 'hallo', 'greetings', 'welcome', 'namaste', 'sup', 'yo', 'wassup', 'howdy', 'hii', 'hiii', 'heya', 'hiya'],
+                response: "Hey there! 👋 Welcome to Sreenidhi's portfolio. I'm her AI assistant. What would you like to know about her? Feel free to ask about her skills, projects, experience, or how to get in touch!"
+            },
+            
+            // Farewells
+            farewell: {
+                patterns: ['bye', 'goodbye', 'see you', 'later', 'farewell', 'cya', 'see ya', 'catch you later', 'gotta go', 'take care', 'bi', 'byee', 'byeee', 'bbye', 'bai', 'bay'],
+                response: "Thanks for visiting! 👋 Feel free to come back anytime if you have more questions about Sreenidhi. Have a great day!"
             },
             
             // Gratitude
             thanks: {
                 patterns: ['thanks', 'thank you', 'tq', 'thankyou', 'appreciate', 'grateful', 'cheers', 'much appreciated', 'thx', 'tyvm', 'ty'],
-                response: "You're welcome! 😊 Feel free to ask me anything else about Siddharth's skills, projects, or how to reach him. Happy to help!"
+                response: "You're welcome! 😊 Feel free to ask me anything else about Sreenidhi's skills, projects, or how to reach her. Happy to help!"
             },
             
             // Acknowledgments
             acknowledge: {
                 patterns: ['k', 'ok', 'okay', 'alright', 'got it', 'understood', 'yep', 'nice', 'cool', 'awesome'],
-                response: "Got it! 😊 Is there anything else you'd like to know about Siddharth?"
+                response: "Got it! 😊 Is there anything else you'd like to know about Sreenidhi?"
             },
             
-            // About Siddharth
+            // About Sreenidhi
             about: {
                 patterns: ['who is', 'tell me about', 'about', 'who are you', 'what about you', 'introduce', 'yourself', 'tell me about him', 'about him'],
-                response: "<strong>🎯 I'm Yellapragada Siddharth</strong><br><strong>Location:</strong> New Delhi, India<br><strong>Email:</strong> ssid650804@gmail.com<br><br><strong>📚 My Education:</strong><br>• B.Tech CSE (AI, ML, DL) - Teerthanker Mahaveer University (2023-2027)<br>• B.Sc (Hons.) Computer Science - BITS Pilani (2024-2028)<br><br><strong>💼 My Experience:</strong><br>• IT Support & Deployment Trainee - Apple (Jul 2025)<br>• Copilot Trainee - Microsoft (Jun 2025)<br><br><strong>🛠️ My Top Skills:</strong><br>Python (90%), JavaScript (75%), C++ (70%), Java (65%), HTML/CSS (85%)<br>TensorFlow, Scikit-learn, OpenCV, React, Flask<br><br><strong>🤖 My Projects:</strong><br>• Nexus AI Assistant (NLP voice automation)<br>• Face Mask Detection (CNN + TensorFlow)<br>• Spam Email Detection (95% accuracy)<br>• Hyperspectral Image Classification<br><br><strong>🏆 My Certifications:</strong><br>Google Generative AI, Microsoft Copilot, MEMS (IIT)<br><br><strong>💡 My Passion:</strong> Building intelligent AI systems for real-world problems!"
+                response: "<strong>🎯 I'm Vajjaha Sreenidhi</strong><br><strong>Location:</strong> Hyderabad, India<br><strong>Email:</strong> ssid650804@gmail.com<br><br><strong>📚 My Education:</strong><br>• B.Tech CSE (AI, ML, DL) - Teerthanker Mahaveer University (2023-2027)<br>• B.Sc (Hons.) Computer Science - BITS Pilani (2024-2028)<br><br><strong>💼 My Experience:</strong><br>• IT Support & Deployment Trainee - Apple (Jul 2025)<br>• Copilot Trainee - Microsoft (Jun 2025)<br><br><strong>🛠️ My Top Skills:</strong><br>Python (90%), JavaScript (75%), C++ (70%), Java (65%), HTML/CSS (85%)<br>TensorFlow, Scikit-learn, OpenCV, React, Flask<br><br><strong>🤖 My Projects:</strong><br>• Nexus AI Assistant (NLP voice automation)<br>• Face Mask Detection (CNN + TensorFlow)<br>• Spam Email Detection (95% accuracy)<br>• Hyperspectral Image Classification<br><br><strong>🏆 My Certifications:</strong><br>Google Generative AI, Microsoft Copilot, MEMS (IIT)<br><br><strong>💡 My Passion:</strong> Building intelligent AI systems for real-world problems!"
             },
             
             // Python Skills
             python: {
                 patterns: ['python', 'py experience', 'python libraries', 'python skills', 'good at python'],
-                response: "<strong>Python (90% Proficiency)</strong><br>Siddharth is highly skilled in Python with expertise in:<br><strong>Data & ML:</strong> NumPy, Pandas, Scikit-learn<br><strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch<br><strong>Computer Vision:</strong> OpenCV, PIL/Pillow<br><strong>NLP:</strong> NLTK, SpaCy, Transformers<br><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly<br><strong>Web:</strong> Flask, Django<br><strong>Other:</strong> Jupyter, conda, pip"
+                response: "<strong>Python (90% Proficiency)</strong><br>Sreenidhi is highly skilled in Python with expertise in:<br><strong>Data & ML:</strong> NumPy, Pandas, Scikit-learn<br><strong>Deep Learning:</strong> TensorFlow, Keras, PyTorch<br><strong>Computer Vision:</strong> OpenCV, PIL/Pillow<br><strong>NLP:</strong> NLTK, SpaCy, Transformers<br><strong>Visualization:</strong> Matplotlib, Seaborn, Plotly<br><strong>Web:</strong> Flask, Django<br><strong>Other:</strong> Jupyter, conda, pip"
             },
             
             // Java Skills
             java: {
                 patterns: ['java', 'java skills', 'java experience', 'java libraries', 'know java'],
-                response: "<strong>Java (65% Proficiency)</strong><br>Siddharth has solid experience with:<br><strong>Core:</strong> OOP principles, Collections, Multithreading, Streams<br><strong>Web Frameworks:</strong> Spring Boot, JSP, Servlets<br><strong>Databases:</strong> JDBC for SQL integration<br><strong>Build Tools:</strong> Maven, Gradle<br><strong>Testing:</strong> JUnit, Mockito, TestNG<br><strong>Data Structures:</strong> Advanced algorithm implementations"
+                response: "<strong>Java (65% Proficiency)</strong><br>Sreenidhi has solid experience with:<br><strong>Core:</strong> OOP principles, Collections, Multithreading, Streams<br><strong>Web Frameworks:</strong> Spring Boot, JSP, Servlets<br><strong>Databases:</strong> JDBC for SQL integration<br><strong>Build Tools:</strong> Maven, Gradle<br><strong>Testing:</strong> JUnit, Mockito, TestNG<br><strong>Data Structures:</strong> Advanced algorithm implementations"
             },
             
             // C++ Skills
             cpp: {
                 patterns: ['c++', 'cpp', 'c++ skills', 'c plus plus', 'cplusplus'],
-                response: "<strong>C++ (70% Proficiency)</strong><br>Siddharth uses C++ for:<br><strong>Competitive Programming:</strong> LeetCode expertise with 500+ problems<br><strong>Performance:</strong> System-level optimization and efficiency<br><strong>Data Structures:</strong> Advanced STL (Standard Template Library)<br><strong>Modern C++:</strong> C++17/C++20 features, smart pointers, templates<br><strong>Algorithm Design:</strong> Optimized solutions for complex problems"
+                response: "<strong>C++ (70% Proficiency)</strong><br>Sreenidhi uses C++ for:<br><strong>Competitive Programming:</strong> LeetCode expertise with 500+ problems<br><strong>Performance:</strong> System-level optimization and efficiency<br><strong>Data Structures:</strong> Advanced STL (Standard Template Library)<br><strong>Modern C++:</strong> C++17/C++20 features, smart pointers, templates<br><strong>Algorithm Design:</strong> Optimized solutions for complex problems"
             },
             
             // JavaScript & React Skills
@@ -179,7 +185,7 @@ class SimpleAI {
             // Swift Skills
             swift: {
                 patterns: ['swift', 'ios', 'mobile app'],
-                response: "<strong>Swift (50% Proficiency)</strong><br>Siddharth has foundational knowledge of:<br><strong>Core Swift:</strong> Optionals, closures, protocols, extensions<br><strong>iOS Development:</strong> UIKit basics, SwiftUI introduction<br><strong>App Architecture:</strong> MVC patterns<br><strong>Learning Focus:</strong> Expanding iOS development capabilities"
+                response: "<strong>Computer Vision</strong><br>Sreenidhi has experience with:<br><strong>Mask R-CNN:</strong> Object detection and segmentation<br><strong>COCO Dataset:</strong> Training on large-scale datasets<br><strong>Eye Tracking:</strong> Real-time eye movement detection<br><strong>Applications:</strong> Accessibility tools and visual effects"
             },
             
             // All Skills Overview
@@ -263,49 +269,49 @@ class SimpleAI {
             // Contact Information
             contact: {
                 patterns: ['contact', 'email', 'reach', 'phone', 'get in touch', 'connect', 'message', 'dm'],
-                response: "<strong>Contact Siddharth:</strong><br><strong>Email:</strong> ssid650804@gmail.com<br><strong>Location:</strong> New Delhi, India<br><strong>Social Profiles:</strong><br>🔗 GitHub: github.com/ssid050804-Ai<br>🔗 LinkedIn: linkedin.com/in/y-s-a0bba1374<br>🔗 LeetCode: leetcode.com/u/ssid050804<br>🔗 HackerRank: hackerrank.com/profile/ssid050804"
+                response: "<strong>Contact Sreenidhi:</strong><br><strong>Email:</strong> vajjahas@gmail.com<br><strong>Phone:</strong> +91 9652254819<br><strong>Location:</strong> R.T.C colony, Kammaguda, Turkayamjal, Hyderabad<br><strong>Social Profiles:</strong><br>🔗 GitHub: github.com/vsreenidhi25<br>🔗 LinkedIn: linkedin.com/in/sreenidhivajjaha"
             },
             
             // Email
             email: {
                 patterns: ['email', 'mail', 'send email', 'message'],
-                response: "You can reach Siddharth at <strong>ssid650804@gmail.com</strong> for any inquiries, collaborations, or just to say hello!"
+                response: "You can reach Sreenidhi at <strong>vajjahas@gmail.com</strong> for any inquiries, collaborations, or just to say hello!"
             },
             
             // LinkedIn
             linkedin: {
                 patterns: ['linkedin', 'linkedin profile', 'connect on linkedin'],
-                response: "Connect with Siddharth on LinkedIn: <strong>linkedin.com/in/y-s-a0bba1374</strong><br>Great place to see his professional updates and network!"
+                response: "Connect with Sreenidhi on LinkedIn: <strong>linkedin.com/in/sreenidhivajjaha</strong><br>Great place to see her professional updates and network!"
             },
             
             // GitHub
             github: {
                 patterns: ['github', 'github profile', 'code', 'repositories', 'repo'],
-                response: "Check out Siddharth's code on GitHub: <strong>github.com/ssid050804-Ai</strong><br>Browse his projects, contributions, and open source work!"
+                response: "Check out Sreenidhi's code on GitHub: <strong>github.com/vsreenidhi25</strong><br>Browse her projects, contributions, and open source work!"
             },
             
             // LeetCode
             leetcode: {
                 patterns: ['leetcode', 'coding problems', 'algorithms', 'competitive'],
-                response: "Siddharth's LeetCode profile: <strong>leetcode.com/u/ssid050804</strong><br>500+ problems solved! Strong algorithmic thinking and problem-solving skills!"
+                response: "Sreenidhi focuses on practical web development and computer vision projects. Check out her GitHub for her work!"
             },
             
             // HackerRank
             hackerrank: {
                 patterns: ['hackerrank', 'hackerrank profile', 'coding challenges'],
-                response: "Siddharth on HackerRank: <strong>hackerrank.com/profile/ssid050804</strong><br>Demonstrates practical programming skills across multiple languages!"
+                response: "Sreenidhi demonstrates practical programming skills through her projects. Check out her GitHub for her work!"
             },
             
             // Location
             location: {
                 patterns: ['location', 'where', 'based', 'city', 'country', 'delhi', 'new delhi'],
-                response: "Siddharth is based in <strong>New Delhi, India</strong>. Always open to remote opportunities and collaborations worldwide!"
+                response: "Sreenidhi is based in <strong>Hyderabad, India</strong>. Always open to remote opportunities and collaborations worldwide!"
             },
             
             // TensorFlow
             tensorflow: {
                 patterns: ['tensorflow', 'keras', 'tf', 'deep learning framework'],
-                response: "<strong>TensorFlow & Keras (80% Proficiency)</strong><br>Siddharth has extensive experience with:<br>• Building neural networks<br>• Image classification models<br>• Object detection<br>• Transfer learning<br>• Model optimization and deployment<br>Used extensively in Face Mask Detection and other vision projects!"
+                response: "<strong>Computer Vision & ML</strong><br>Sreenidhi has experience with:<br>• Mask R-CNN for object detection<br>• COCO dataset training<br>• Eye tracking systems<br>• Image processing<br>• Real-time detection<br>Used extensively in Invisible Man and Eye Link projects!"
             },
             
             // OpenCV
@@ -371,7 +377,7 @@ class SimpleAI {
             // What excites him
             excited: {
                 patterns: ['excited', 'passionate', 'interest', 'love', 'enjoys', 'what excites'],
-                response: "<strong>What Excites Siddharth:</strong><br>🤖 Machine Learning & AI algorithms<br>🗣️ Natural Language Processing<br>👁️ Computer Vision applications<br>🧠 Deep Learning architectures<br>🚀 Building scalable AI systems<br>💻 Full-Stack Development<br>📊 Data-driven problem solving<br><strong>Philosophy:</strong> Using cutting-edge technology to solve real-world problems!"
+                response: "<strong>What Excites Sreenidhi:</strong><br>🤖 Machine Learning & AI algorithms<br>🗣️ Natural Language Processing<br>👁️ Computer Vision applications<br>🧠 Deep Learning architectures<br>🚀 Building scalable AI systems<br>💻 Full-Stack Development<br>📊 Data-driven problem solving<br><strong>Philosophy:</strong> Using cutting-edge technology to solve real-world problems!"
             },
             
             // Work approach
@@ -429,7 +435,7 @@ class SimpleAI {
             },
             
             // Default response
-            default: "I can help you with information about Siddharth's skills, projects, experience, education, certifications, and how to reach him. Try asking about:<br>• Specific programming languages (Python, Java, C++, JavaScript)<br>• His AI projects<br>• Experience and education<br>• How to contact him<br>• Technical skills and expertise<br>Or just say hello! 😊"
+            default: "I can help you with information about Sreenidhi's skills, projects, experience, education, and how to reach her. Try asking about:<br>• Programming languages (Python, HTML, CSS, JavaScript)<br>• Her web development and computer vision projects<br>• Experience and education<br>• How to contact her<br>• Technical skills and expertise<br>Or just say hello! 😊"
         };
         
         // Check knowledge base

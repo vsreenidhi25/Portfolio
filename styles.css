@@ -1,5 +1,5 @@
 /* ============================================
-   Yellapragada Siddharth — Portfolio
+   Vajjaha Sreenidhi — Portfolio
    Dark Theme: Deep Violet + Soft Purple Accents
    Built clean. No duplicates. No white anywhere.
    ============================================ */
@@ -2219,8 +2219,8 @@ section:last-of-type::after {
 
 /* Skill level indicators */
 .skill-bar-fill[data-level="95"], .skill-bar-fill[data-level="90"] {
-    background: linear-gradient(90deg, #10b981, #34d399);
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+    box-shadow: 0 0 15px var(--glow);
 }
 
 .skill-bar-fill[data-level="85"], .skill-bar-fill[data-level="80"] {
@@ -4192,4 +4192,38 @@ body {
 /* Ensure all sections are properly spaced */
 section:last-child {
     padding-bottom: 6rem;
+}
+
+
+/* Force skill bars to show with their levels */
+.skill-bar-fill[data-level="90"] {
+    width: 90% !important;
+}
+
+.skill-bar-fill[data-level="85"] {
+    width: 85% !important;
+}
+
+.skill-bar-fill[data-level="80"] {
+    width: 80% !important;
+}
+
+.skill-bar-fill[data-level="75"] {
+    width: 75% !important;
+}
+
+.skill-bar-fill[data-level="70"] {
+    width: 70% !important;
+}
+
+.skill-bar-fill[data-level="65"] {
+    width: 65% !important;
+}
+
+.skill-bar-fill[data-level="60"] {
+    width: 60% !important;
+}
+
+.skill-bar-fill[data-level="50"] {
+    width: 50% !important;
 }

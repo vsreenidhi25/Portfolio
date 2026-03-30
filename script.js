@@ -337,8 +337,8 @@ function initTextScramble() {
     const originalHTML = el.innerHTML;
     // Extract just text nodes for scramble (preserve the span)
     const accentSpan = el.querySelector('.hero-title-accent');
-    const firstName = 'Yellapragada';
-    const lastName = accentSpan ? accentSpan.textContent : 'Siddharth';
+    const firstName = 'Vajjaha';
+    const lastName = accentSpan ? accentSpan.textContent : 'Sreenidhi';
 
     let frame = 0;
     const totalFrames = 30;
@@ -460,4 +460,41 @@ if (logo) {
         }
         lastScroll = scrollY;
     }, { passive: true });
+}
+
+
+// ─── Skill Bar Animation ───
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const level = bar.getAttribute('data-level');
+                
+                // Animate the width
+                setTimeout(() => {
+                    bar.style.width = level + '%';
+                    bar.classList.add('animated');
+                }, 200);
+                
+                observer.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    skillBars.forEach(bar => observer.observe(bar));
+}
+
+// Initialize skill bar animation when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.skill-bar-fill')) {
+        animateSkillBars();
+    }
+});
+
+// Also trigger on page load (in case DOMContentLoaded already fired)
+if (document.querySelector('.skill-bar-fill')) {
+    animateSkillBars();
 }

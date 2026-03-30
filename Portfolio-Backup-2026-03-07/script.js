@@ -337,8 +337,8 @@ function initTextScramble() {
     const originalHTML = el.innerHTML;
     // Extract just text nodes for scramble (preserve the span)
     const accentSpan = el.querySelector('.hero-title-accent');
-    const firstName = 'Yellapragada';
-    const lastName = accentSpan ? accentSpan.textContent : 'Siddharth';
+    const firstName = 'Vajjaha';
+    const lastName = accentSpan ? accentSpan.textContent : 'Sreenidhi';
 
     let frame = 0;
     const totalFrames = 30;
